@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block layout %}
+{% include 'components/header.html' %}
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content">
+    <!-- Secondary Navbar -->
+    {% include 'components/navbar.html' %}
+    <!-- End Secondary Navbar -->
+    <div class="max-w-[85rem] mx-auto py-10 px-4 sm:px-6 lg:px-8">
+        {% block content %}{% endblock content %}
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+{% endblock layout %}

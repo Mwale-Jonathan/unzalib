@@ -1,0 +1,73 @@
+{% load allauth %}
+{% if attrs.type == "checkbox" or attrs.type == "radio" %}
+    <div class="flex items-center">
+        <div class="flex">
+              <input id="{{ attrs.id }}" name="{{ attrs.name }}"
+              {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
+               {% if attrs.disabled %}disabled{% endif %}
+               type="{{ attrs.type }}"
+               class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-600">
+        </div>
+        <div class="ms-3">
+            <label for="{{ attrs.id }}" class="text-sm dark:text-white">
+                {% slot label %}
+                {% endslot %}
+            </label>
+        </div>
+        {% if slots.help_text %}
+            <p class="text-xs text-gray-400 mt-2">
+                {% slot help_text %}
+                {% endslot %}
+            </p>
+        {% endif %}
+    </div>
+{% elif attrs.type == "textarea" %}
+    <div>
+        <label class="block text-sm mb-2" for="{{ attrs.id }}">
+            {% slot label %}
+            {% endslot %}
+        </label>
+        <textarea {% if attrs.required %}required{% endif %}
+                  {% if attrs.rows %}rows="{{ attrs.rows }}"{% endif %}
+                  class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                  name="{{ attrs.name }}"
+                  {% if attrs.readonly %}readonly{% endif %}
+                  id="{{ attrs.id }}"
+                  {% if attrs.disabled %}disabled{% endif %}>{% slot value %}{% endslot %}</textarea>
+    </div>
+{% elif attrs.type == "hidden" %}
+    <input {% if attrs.required %}required{% endif %}
+           name="{{ attrs.name }}"
+           id="{{ attrs.id }}"
+           {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
+           type="hidden">
+{% else %}
+    <div>
+        <label class="block text-sm mb-2 dark:text-white" for="{{ attrs.id }}">
+            {% slot label %}
+            {% endslot %}
+        </label>
+        <div class="relative">
+            <input {% if attrs.required %}required{% endif %}
+                   name="{{ attrs.name }}"
+                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none {% if attrs.errors %}border-red-100 focus:border-red-600 focus:ring-red-600{% endif %} "
+                   id="{{ attrs.id }}"
+                   {% if attrs.readonly %}readonly{% endif %}
+                   {% if attrs.disabled %}disabled{% endif %}
+                   {% if attrs.tabindex %}tabindex="{{ attrs.tabindex }}"{% endif %}
+                   {% if attrs.style %}style="{{ attrs.style }}"{% endif %}
+                   {% if attrs.autocomplete %}autocomplete="{{ attrs.autocomplete }}"{% endif %}
+                   {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
+                   type="{{ attrs.type }}">
+        </div>
+        {% if slots.help_text %}
+            <p class="text-xs text-gray-400 mt-2">
+                {% slot help_text %}
+                {% endslot %}
+            </p>
+        {% endif %}
+        {% if attrs.errors %}
+            {% for error in attrs.errors %}<p class="text-xs text-red-600 mt-2">{{ error }}</p>{% endfor %}
+        {% endif %}
+    </div>
+{% endif %}

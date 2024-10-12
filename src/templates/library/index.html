@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+{% block content %}
+    <div class="container mx-auto p-4">
+        <div class="mb-4">
+            <div class="flex items-center mb-2">
+                <label for="search" class="mr-2 text-gray-700 font-semibold">Search</label>
+                <select class="border rounded px-2 py-1 mr-2">
+                    <option>Keyword</option>
+                </select>
+                <input type="text" id="search" placeholder="Search University of Zambia Collection" class="border rounded px-2 py-1 flex-grow">
+                <button class="bg-green-500 text-white px-4 py-1 rounded ml-2">Go</button>
+            </div>
+            <div class="text-sm text-blue-600">
+                <a href="#" class="mr-2">Advanced search</a> |
+                <a href="#" class="mx-2">Course reserves</a> |
+                <a href="#" class="mx-2">Authority search</a> |
+                <a href="#" class="ml-2">Tag cloud</a>
+            </div>
+        </div>
+
+        <div class="bg-gray-200 p-2 text-sm mb-4">
+            <a href="#" class="text-blue-600">Home</a> &gt;
+            <a href="#" class="text-blue-600">Lists</a> &gt;
+            <a href="#" class="text-blue-600">Public lists</a> &gt;
+            <span>Contents of Law</span>
+        </div>
+
+        <div class="flex">
+            <div class="w-1/4 pr-4">
+                <h2 class="font-bold mb-2">Quick Links</h2>
+                <ul class="bg-white border rounded">
+                    <li class="border-b p-2"><a href="#" class="text-blue-600">UNZA Digital Library</a></li>
+                    <li class="border-b p-2"><a href="#" class="text-green-600">E-Journals</a></li>
+                    <li class="border-b p-2"><a href="#" class="text-green-600">E-Learning</a></li>
+                    <li class="border-b p-2"><a href="#" class="text-green-600">Services</a></li>
+                    <li class="border-b p-2"><a href="#" class="text-green-600">Ask A Librarian</a></li>
+                    <li class="p-2"><a href="#" class="text-green-600">Borrowing Procedure</a></li>
+                </ul>
+            </div>
+            <div class="w-3/4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-xl">Law</h2>
+                    <div>
+                        <button class="bg-blue-500 text-white px-2 py-1 rounded text-sm mr-2">New list</button>
+                        <button class="bg-blue-500 text-white px-2 py-1 rounded text-sm mr-2">Download list</button>
+                        <button class="bg-blue-500 text-white px-2 py-1 rounded text-sm mr-2">Send list</button>
+                        <button class="bg-blue-500 text-white px-2 py-1 rounded text-sm">Print list</button>
+                    </div>
+                </div>
+                <div class="bg-gray-200 p-2 mb-4 flex justify-between items-center">
+                    <div>
+                        <a href="#" class="text-blue-600 mr-2">Select all</a>
+                        <a href="#" class="text-blue-600">Clear all</a> |
+                        <span class="ml-2">Select titles to:</span>
+                        <a href="#" class="text-blue-600 ml-2">Place hold</a>
+                    </div>
+                    <div>
+                        <span class="mr-2">Sort by:</span>
+                        <select class="border rounded px-2 py-1 mr-2">
+                            <option>Title</option>
+                        </select>
+                        <select class="border rounded px-2 py-1">
+                            <option>Ascending</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="bg-white p-4 border rounded flex">
+                    <input type="checkbox" class="mr-4 mt-1">
+                    <div>
+                        <h3 class="font-bold text-blue-600">Unlocking Land Law / Judith Bray.</h3>
+                        <p>by Bray, Judith.</p>
+                        <p><strong>Edition:</strong> 3rd edition</p>
+                        <p><strong>Material type:</strong> Book; Format: print ; Literary form: Not fiction</p>
+                        <p><strong>Publisher:</strong> Abingdon: Hodder Education, 2010</p>
+                        <p><strong>Availability:</strong> Items available for loan: Main Library [Call number: KD 821 BRA 2010] (2).</p>
+                        <a href="#" class="text-blue-600">Add to cart</a>
+                    </div>
+                    <img src="/api/placeholder/80/120" alt="Book cover" class="ml-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
