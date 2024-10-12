@@ -2,11 +2,11 @@
 {% if attrs.type == "checkbox" or attrs.type == "radio" %}
     <div class="flex items-center">
         <div class="flex">
-              <input id="{{ attrs.id }}" name="{{ attrs.name }}"
-              {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
-               {% if attrs.disabled %}disabled{% endif %}
-               type="{{ attrs.type }}"
-               class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-600">
+            <input id="{{ attrs.id }}" name="{{ attrs.name }}"
+                   {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
+                   {% if attrs.disabled %}disabled{% endif %}
+                   type="{{ attrs.type }}"
+                   class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-600">
         </div>
         <div class="ms-3">
             <label for="{{ attrs.id }}" class="text-sm dark:text-white">

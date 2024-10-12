@@ -1,40 +1,40 @@
 {% extends "layouts/main.html" %}
 {% load tailwind_filters %}
 {% block content %}
-<div class="flex min-h-screen items-center py-4" id="auth">
-    <div class="w-full max-w-2xl mx-auto">
-        <h1 class="mb-4">Edit your Profile</h1>
-        <div class="text-center flex flex-col items-center">
-            <img id="avatar" class="w-36 h-36 rounded-full object-cover my-4" src="{{ user.image.url }}" />
-            <div class="text-center max-w-md">
-                <h1 class="mb-2">{{ user.username }}</h1>
-                <div class="text-gray-400 mb-2 -mt-3">{{ user.email }}</div>
+    <div class="flex min-h-screen items-center py-4" id="auth">
+        <div class="w-full max-w-2xl mx-auto">
+            <h1 class="mb-4">Edit your Profile</h1>
+            <div class="text-center flex flex-col items-center">
+                <img id="avatar" class="w-36 h-36 rounded-full object-cover my-4" src="{{ user.image.url }}" />
+                <div class="text-center max-w-md">
+                    <h1 class="mb-2">{{ user.username }}</h1>
+                    <div class="text-gray-400 mb-2 -mt-3">{{ user.email }}</div>
+                </div>
             </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="mt-4 flex justify-between item">
+                    <button type="submit" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        Update profile
+                    </button>
+                </div>
+            </form>
         </div>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="mt-4 flex justify-between item">
-                <button type="submit" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                    Update profile
-                </button>
-            </div>
-        </form>
     </div>
-</div>
-<script>
+    <script>
 // This updates the avatar
-const fileInput = document.querySelector('input[type="file"]');
+        const fileInput = document.querySelector('input[type="file"]');
 
-fileInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    const image = document.querySelector('#avatar');
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            const image = document.querySelector('#avatar');
 
-    if (file && file.type.includes('image')) {
-        const url = URL.createObjectURL(file);
-        image.src = url;
-    }
-});
+            if (file && file.type.includes('image')) {
+                const url = URL.createObjectURL(file);
+                image.src = url;
+            }
+        });
 
 // This updates the name
 // const display_nameInput = document.getElementById('id_displayname');
@@ -43,9 +43,9 @@ fileInput.addEventListener('change', (event) => {
 // display_nameInput.addEventListener('input', (event) => {
 //     display_nameOutput.innerText = event.target.value;
 // });
-let fields = document.getElementsByTagName("input");
-for (var field in fields) {
-    fields[field].classList += " mb-2";
-}
-</script>
+        let fields = document.getElementsByTagName("input");
+        for (var field in fields) {
+            fields[field].classList += " mb-2";
+        }
+    </script>
 {% endblock content %}

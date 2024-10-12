@@ -2,31 +2,31 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
     <!-- Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Django, webapp, keywords">
-    <meta name="description" content="A starter boilerplate for django projects">
-    <meta name="theme-color" content="#007bbd">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="Django, webapp, keywords">
+        <meta name="description" content="A starter boilerplate for django projects">
+        <meta name="theme-color" content="#007bbd">
     <!-- Links -->
-    <link rel="canonical" href="{{ request.path }}">
-    <link rel="home" href="{% url 'index' %}">
+        <link rel="canonical" href="{{ request.path }}">
+        <link rel="home" href="{% url 'index' %}">
     <!-- Favicons -->
-    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+        <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <!-- CSS & JS -->
-    <link href="{% static 'css/master.css' %}" rel="stylesheet" />
-    <script src="{% static 'js/app.js' %}" type="module" defer></script>
-    {% if title %}
-    <title>{{ title }} | {{ app_name_short }}</title>
-    {% else %}
-    <title>{{ app_name_full }}</title>
-    {% endif %}
-</head>
+        <link href="{% static 'css/master.css' %}" rel="stylesheet" />
+        <script src="{% static 'js/app.js' %}" type="module" defer></script>
+        {% if title %}
+            <title>{{ title }} | {{ app_name_short }}</title>
+        {% else %}
+            <title>{{ app_name_full }}</title>
+        {% endif %}
+    </head>
 
-<body class="font-rubik bg-gray-50 dark:text-white dark:bg-neutral-900">
-    {% include 'components/messages.html' %}
-    {% block layout %}{% endblock layout %}
-</body>
+    <body class="font-rubik bg-gray-50 dark:text-white dark:bg-neutral-900">
+        {% include 'components/messages.html' %}
+        {% block layout %}{% endblock layout %}
+    </body>
 
 </html>
